@@ -68,7 +68,7 @@
             @Html.DisplayFor(modelItem => item.Descrizione)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IDclienti)
+            @Html.DisplayFor(modelItem => item.ospite)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IDstanza)
@@ -77,9 +77,9 @@
             @Html.DisplayFor(modelItem => item.Tariffa)
         </td>
         <td>
-            @Html.ActionLink("✏", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("🔎", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("🗑", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("✏", "Edit", new { id = item.IDprenotazione }) |
+            @Html.ActionLink("🔎", "Details", new { id = item.IDprenotazione }) |
+            @Html.ActionLink("🗑", "Delete", new { id = item.IDprenotazione }) |
         </td>
     </tr>
 }

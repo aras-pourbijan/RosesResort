@@ -41,5 +41,9 @@ namespace RosesResort.Models
         [Required(ErrorMessage = "Obligatrio")]
         [Range(45, int.MaxValue)]
         public decimal Tariffa { get; set; }
+        public string ospite { get; set; }  
     }
 }
+
+
+

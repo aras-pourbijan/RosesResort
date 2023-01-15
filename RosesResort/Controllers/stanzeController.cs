@@ -135,8 +135,16 @@ namespace RosesResort.Controllers
         public ActionResult Createstanza(stanze S)
         {
 
+
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["rosesresortDB"].ConnectionString);
             con.Open();
+
+           // List<SelectListItem> SelectListTipologia = new List<SelectListItem>();
+           // SelectListItem S1 = new SelectListItem { Text = "Singola", Value = "1" };
+            //SelectListItem S2 = new SelectListItem { Text = "Doppia", Value = "2" };
+           // SelectListTipologia.Add(S1);
+            //SelectListTipologia.Add(S2);
+            //ViewBag.listaTipologia=SelectListTipologia;
             try
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO stanze VALUES (@nomestanza , @tipologia , @descrizione) ", con);

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using System.Xml.Linq;
 
 namespace RosesResort.Models
@@ -21,6 +25,6 @@ namespace RosesResort.Models
 
         [Display(Name = "Descrizione")]
         public string Descrizione { get; set; }
-        
+
     }
 }
