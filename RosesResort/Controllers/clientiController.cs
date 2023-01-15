@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace RosesResort.Controllers
 {
+    [Authorize]
     public class clientiController : Controller
     {
         // GET: clienti
@@ -121,8 +122,11 @@ namespace RosesResort.Controllers
             {
                 SqlCommand cmd =new SqlCommand( "delete from clients where IDclienti=@ID", con);
                 cmd.Parameters.AddWithValue("@ID", ID);
-              cmd.ExecuteNonQuery();
-                ViewBag.msg = "Hai eliminato un cliente !";
+                int row=cmd.ExecuteNonQuery();
+                if (row > 0)
+                {
+                    ViewBag.dlt = "Hai eliminato un cliente !";
+                }
             }
             catch (Exception ex)
             {
@@ -136,6 +140,41 @@ namespace RosesResort.Controllers
 
             Thread.Sleep(500);
             return RedirectToAction("ListaClienti");
+        }
+
+
+        public ActionResult create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult create(clienti C)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["rosesresortDB"].ConnectionString);
+            con.Open();
+            try { 
+            SqlCommand cmd = new SqlCommand("INSERT INTO clients VALUES (@CodiceFiscale , @Nome , @Cognome ,  @citta , @provincia,  @email , @tel) ", con);
+            cmd.Parameters.AddWithValue("CodiceFiscale", C.CodiceFiscale);
+            cmd.Parameters.AddWithValue("Nome", C.Nome);
+            cmd.Parameters.AddWithValue("Cognome", C.Cognome);
+            cmd.Parameters.AddWithValue("citta", C.Citta);
+            cmd.Parameters.AddWithValue("provincia", C.Provincia);
+            cmd.Parameters.AddWithValue("email", C.Email);
+            cmd.Parameters.AddWithValue("tel", C.Tel);
+            int row = cmd.ExecuteNonQuery();
+            if (row > 0)
+            {
+                ViewBag.statoAzione= "nuovo cliente si e` inserito con sucesso!";
+            }
+
+            }catch(Exception ex)
+            {
+                ViewBag.err = ex.Message;
+            }
+
+            finally { con.Close(); }
+            Thread.Sleep(500);
+            return View();  
         }
 
 

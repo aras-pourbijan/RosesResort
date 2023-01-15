@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RosesResort.Models.stanze>
+
+@{
+    ViewBag.Title = "ListStanze";
+}
+
+<h2>Le Stanze<span> <i class="bi bi-buildings">@Html.ActionLink("+", "Createstanza")</i></span></h2>
+@if (ViewBag.msg !=null){<p class="bg-success text-light">@ViewBag.msg</p>}
+<p class="bg-danger">@ViewBag.err</p>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NomeStanza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipologia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            @Html.HiddenFor(modelItem => item.IDstanza)
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeStanza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipologia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+            <td>
+                @Html.ActionLink("✏", "Edit", new { id = item.IDstanza }) |
+
+                @Html.ActionLink("🗑", "Delete", new { id = item.IDstanza })
+            </td>
+        </tr>
+    }
+
+</table>

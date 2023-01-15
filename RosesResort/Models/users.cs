@@ -17,5 +17,6 @@ namespace RosesResort.Models
         [Required (ErrorMessage ="e tuo password?!")]
 
         public string PasswordDiUser { get; set; }
+        public bool ricordami { get; set; } 
     }
 }

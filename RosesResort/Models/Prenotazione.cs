@@ -12,10 +12,10 @@ namespace RosesResort.Models
         public int IDprenotazione { get; set; }
 
         [Display(Name = "Data del Prenotazione")]
-        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Obligatrio")]
         public DateTime DataPrenotazione { get; set; }
         [Display(Name = "Stagione")]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public int StaggioneDiAnno { get; set; }
 
         [Display(Name = "Data del check-in")]

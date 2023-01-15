@@ -29,9 +29,5 @@ namespace RosesResort.Models
         [Display(Name = "Tel/Cellulare")]
         public string Tel { get; set; }
 
-
-
-
-
     }
 }

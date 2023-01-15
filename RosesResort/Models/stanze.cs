@@ -11,7 +11,7 @@ namespace RosesResort.Models
     {
         public int IDstanza { get; set; }
 
-        [Display(Name = "Stanza")]
+        [Display(Name = "Nome di Stanza")]
         [Required(ErrorMessage = "obligatorio")]
         public string NomeStanza { get; set; }
 
